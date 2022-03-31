@@ -14,12 +14,12 @@ ccflags-y += -DCONFIG_CFG80211_WEXT
 #ccflags-y += -DCONFIG_CFG80211_INTERNAL_REGDB
 ccflags-y += -DCONFIG_NL80211_TESTMODE
 
-ccflags-y += -I$(src)/../include
-ccflags-y += -I$(src)/../cfg80211
-ccflags-y += -include $(src)/../include/linux/ieee80211.h
-ccflags-y += -include $(src)/../include/linux/nl80211.h
-ccflags-y += -include $(src)/../include/net/cfg80211.h
-ccflags-y += -include $(src)/../include/linux/compat-2.6.h
+ccflags-y += -I$(src)/include
+ccflags-y += -I$(src)/cfg80211
+ccflags-y += -include $(src)/include/linux/ieee80211.h
+ccflags-y += -include $(src)/include/linux/nl80211.h
+ccflags-y += -include $(src)/include/net/cfg80211.h
+ccflags-y += -include $(src)/include/linux/compat-2.6.h
 
 ldflags-y += --strip-debug
 

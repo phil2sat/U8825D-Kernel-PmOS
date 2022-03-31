@@ -15,12 +15,12 @@ ccflags-y += -DCONFIG_NL80211_TESTMODE
 
 ccflags-y += -DFIX_HUAWEI_BUTCHERING
 
-ccflags-y += -I$(src)/../include
-ccflags-y += -I$(src)/../ar6000
-ccflags-y += -include $(src)/../include/linux/ieee80211.h
-ccflags-y += -include $(scr)/../include/linux/nl80211.h
-ccflags-y += -include $(src)/../include/net/cfg80211.h
-ccflags-y += -include $(src)/../include/linux/compat-2.6.h
+ccflags-y += -I$(src)/include
+ccflags-y += -I$(src)/ar6000
+ccflags-y += -include $(src)/include/linux/ieee80211.h
+ccflags-y += -include $(scr)/include/linux/nl80211.h
+ccflags-y += -include $(src)/include/net/cfg80211.h
+ccflags-y += -include $(src)/include/linux/compat-2.6.h
 
 ldflags-y += --strip-debug
 
