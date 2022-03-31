@@ -59,4 +59,3 @@ obj-$(CONFIG_PHONE)		+= telephony/
 obj-$(CONFIG_RAMSTER)		+= ramster/
 obj-$(CONFIG_USB_WPAN_HCD)	+= ozwpan/
 obj-$(CONFIG_HUAWEI_HUNGTASK)   += rsm/
-obj-$(CONFIG_ATH6K_LEGACY)	+= ath6kl/
