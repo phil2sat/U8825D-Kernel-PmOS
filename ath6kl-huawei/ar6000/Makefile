@@ -28,7 +28,8 @@ ldflags-y += --strip-debug
 
 KBUILD_EXTRA_SYMBOLS = $(src)/cfg80211/Module.symvers
 
-KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
+#KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
+KERNELDIR ?=KERNELDIR=$(modinst_dir)
 
 modules:
 	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules
