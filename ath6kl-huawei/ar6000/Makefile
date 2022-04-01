@@ -26,7 +26,7 @@ ccflags-y += -include $(SELF_DIR)/../include/linux/compat-2.6.h
 
 ldflags-y += --strip-debug
 
-KBUILD_EXTRA_SYMBOLS = $(src)/cfg80211/Module.symvers
+KBUILD_EXTRA_SYMBOLS = $(SELF_DIR)/../cfg80211/Module.symvers
 
 KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
 
