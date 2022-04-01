@@ -31,7 +31,7 @@ KBUILD_EXTRA_SYMBOLS = $(src)/cfg80211/Module.symvers
 KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules
+	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules_install
 
 clean:
 	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) clean
