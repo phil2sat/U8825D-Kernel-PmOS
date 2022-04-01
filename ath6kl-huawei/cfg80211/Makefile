@@ -16,8 +16,8 @@ ccflags-y += -DCONFIG_NL80211_TESTMODE
 
 SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
-ccflags-y += -I$(src)/include
-ccflags-y += -I$(src)/cfg80211
+ccflags-y += -I$(SELF_DIR)/../include
+ccflags-y += -I$(SELF_DIR)/../cfg80211
 ccflags-y += -include $(SELF_DIR)/../include/linux/ieee80211.h
 ccflags-y += -include $(SELF_DIR)/../include/linux/nl80211.h
 ccflags-y += -include $(SELF_DIR)/../include/net/cfg80211.h

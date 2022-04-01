@@ -17,8 +17,8 @@ ccflags-y += -DFIX_HUAWEI_BUTCHERING
 
 SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
-ccflags-y += -I$(src)/include
-ccflags-y += -I$(scr)/ar6000
+ccflags-y += -I$(SELF_DIR)/../include
+ccflags-y += -I$(SELF_DIR)/../ar6000
 ccflags-y += -include $(SELF_DIR)/../include/linux/ieee80211.h
 ccflags-y += -include $(SELF_DIR)/../include/linux/nl80211.h
 ccflags-y += -include $(SELF_DIR)/../include/net/cfg80211.h
