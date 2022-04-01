@@ -28,7 +28,7 @@ ldflags-y += --strip-debug
 KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules_install
+	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules
 
 clean:
 	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) clean
