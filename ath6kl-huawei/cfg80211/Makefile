@@ -25,8 +25,7 @@ ccflags-y += -include $(SELF_DIR)/../include/linux/compat-2.6.h
 
 ldflags-y += --strip-debug
 
-#KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
-KERNELDIR ?=KERNELDIR=$(modinst_dir)
+KERNELDIR ?=KERNELDIR=/lib/modules/${_abi_release}/build
 
 modules:
 	$(MAKE) -C $(KERNELDIR) M=`pwd` ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules
