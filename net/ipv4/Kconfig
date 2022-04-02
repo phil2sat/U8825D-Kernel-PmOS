@@ -615,6 +615,12 @@ choice
 
 	config DEFAULT_BIC
 		bool "Bic" if TCP_CONG_BIC=y
+		
+	config DEFAULT_BRR
+		bool "Brr" if TCP_CONG_BRR=y
+
+	config DEFAULT_BRR2
+		bool "Brr2" if TCP_CONG_BRR2=y
 
 	config DEFAULT_WESTWOOD
 		bool "Westwood" if TCP_CONG_WESTWOOD=y
@@ -649,6 +655,8 @@ config TCP_CONG_CUBIC
 config DEFAULT_TCP_CONG
 	string
 	default "bic" if DEFAULT_BIC
+	default "brr" if DEFAULT_BRR2
+	default "brr" if DEFAULT_BRR2
 	default "westwood" if DEFAULT_WESTWOOD
 	default "cubic" if DEFAULT_CUBIC
 	default "htcp" if DEFAULT_HTCP
