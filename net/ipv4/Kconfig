@@ -441,6 +441,45 @@ config TCP_CONG_BIC
 	scalability. Under small congestion windows, binary search
 	increase provides TCP friendliness.
 	See http://www.csc.ncsu.edu/faculty/rhee/export/bitcp/
+	
+config TCP_CONG_BRR
+	tristate "Binary Increase Congestion (BIC) control"
+	default m
+	---help---
+	BBR congestion control computes the sending rate based on the delivery
+	rate (throughput) estimated from ACKs. In a nutshell:
+
+	 On each ACK, update our model of the network path:
+	     bottleneck_bandwidth = windowed_max(delivered / elapsed, 10 round trips)
+	     min_rtt = windowed_min(rtt, 10 seconds)
+	  pacing_rate = pacing_gain * bottleneck_bandwidth
+	  cwnd = max(cwnd_gain * bottleneck_bandwidth * min_rtt, 4)
+
+	The core algorithm does not react directly to packet losses or delays,
+	although BBR may adjust the size of next send per ACK when loss is
+	observed, or adjust the sending rate if it estimates there is a
+	traffic policer, in order to keep the drop rate reasonable.
+
+	Here is a state transition diagram for BBR:
+	
+config TCP_CONG_BRR2
+	tristate "Binary Increase Congestion (BIC) control v2"
+	default m
+	---help---
+	BBRv2 is a model-based congestion control algorithm that aims for low
+	queues, low loss, and (bounded) Reno/CUBIC coexistence. To maintain a model
+	of the network path, it uses measurements of bandwidth and RTT, as well as
+	(if they occur) packet loss and/or DCTCP/L4S-style ECN signals.  Note that
+	although it can use ECN or loss signals explicitly, it does not require
+	either; it can bound its in-flight data based on its estimate of the BDP.
+
+	The model has both higher and lower bounds for the operating range:
+	  lo: bw_lo, inflight_lo: conservative short-term lower bound
+	  hi: bw_hi, inflight_hi: robust long-term upper bound
+	The bandwidth-probing time scale is (a) extended dynamically based on
+	estimated BDP to improve coexistence with Reno/CUBIC; (b) bounded by
+	an interactive wall-clock time-scale to be more scalable and responsive
+	than Reno and CUBIC.
 
 config TCP_CONG_CUBIC
 	tristate "CUBIC TCP"
