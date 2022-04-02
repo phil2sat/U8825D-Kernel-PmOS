@@ -655,8 +655,8 @@ config TCP_CONG_CUBIC
 config DEFAULT_TCP_CONG
 	string
 	default "bic" if DEFAULT_BIC
-	default "brr" if DEFAULT_BRR2
-	default "brr" if DEFAULT_BRR2
+	default "brr" if DEFAULT_BRR
+	default "brr2" if DEFAULT_BRR2
 	default "westwood" if DEFAULT_WESTWOOD
 	default "cubic" if DEFAULT_CUBIC
 	default "htcp" if DEFAULT_HTCP
