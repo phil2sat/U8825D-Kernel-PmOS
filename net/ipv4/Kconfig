@@ -443,7 +443,7 @@ config TCP_CONG_BIC
 	See http://www.csc.ncsu.edu/faculty/rhee/export/bitcp/
 	
 config TCP_CONG_BRR
-	tristate "Binary Increase Congestion (BIC) control"
+	tristate "Bottleneck Bandwidth and RTT (BBR) congestion control"
 	default m
 	---help---
 	BBR congestion control computes the sending rate based on the delivery
@@ -459,11 +459,9 @@ config TCP_CONG_BRR
 	although BBR may adjust the size of next send per ACK when loss is
 	observed, or adjust the sending rate if it estimates there is a
 	traffic policer, in order to keep the drop rate reasonable.
-
-	Here is a state transition diagram for BBR:
 	
 config TCP_CONG_BRR2
-	tristate "Binary Increase Congestion (BIC) control v2"
+	tristate "Bottleneck Bandwidth and RTT (BBR) congestion control v2"
 	default m
 	---help---
 	BBRv2 is a model-based congestion control algorithm that aims for low
